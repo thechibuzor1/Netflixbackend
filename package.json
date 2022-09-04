@@ -9,6 +9,7 @@
     "nodemon": "^2.0.19"
   },
   "scripts": {
+    "build": "npm install",
     "start": "node Server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
