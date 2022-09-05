@@ -7,11 +7,9 @@
   "license": "ISC",
   "description": "",
   "scripts": {
-    "dev": "react-scripts start",
-"start": "serve -s build",
-"build": "react-scripts build",
-"test": "react-scripts test --env=jsdom",
-"eject": "react-scripts eject",
+    "dev": "node Server.js",
+"start": "node Server.js",
+"build": "npm install",
 "heroku-postbuild": "npm run build"
   },
   "dependencies": {
