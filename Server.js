@@ -23,7 +23,7 @@ app.use("/api/seed", seedRouter);
 app.use("/api/users", userRouter);
 
  
-app.get("/", (req, res) => {
+app.get("/api/home", (req, res) => {
   res.send("INDOMITABLE SUIIII");
 });
 app.use((err, req, res, next) => {
