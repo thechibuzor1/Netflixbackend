@@ -23,6 +23,6 @@
   "description": "",
 
   "engines": {
-    "node": "16.14.2"
+    "node": "10.x"
   }
 }
