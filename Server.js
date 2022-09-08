@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import userRouter from "./Routes/UserRoutes.js";
 import mongoose from "mongoose";
+import seedRouter from "./Routes/seedRoutes.js";
 
 dotenv.config();
 mongoose
@@ -18,8 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/users", userRouter);
+app.use("/api/seed", seedRouter);
 
- 
 app.get("/", (req, res) => {
   res.send("INDOMITABLE SUIIII");
 });
