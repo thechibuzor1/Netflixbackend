@@ -1,8 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
-import userRouter from "./routes/UserRoutes.js";
+import userRouter from "./Routes/UserRoutes.js";
 import mongoose from "mongoose";
-import seedRouter from "./routes/seedRoutes.js";
 
 dotenv.config();
 mongoose
@@ -18,7 +17,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/seed", seedRouter);
 app.use("/api/users", userRouter);
 
  
