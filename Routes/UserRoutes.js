@@ -9,6 +9,7 @@ const userRouter = express.Router();
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
@@ -28,6 +29,7 @@ userRouter.post(
 userRouter.post(
   "/signup",
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
@@ -47,6 +49,7 @@ userRouter.put(
   "/profile",
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findById(req.user._id);
     if (user) {
       user.name = req.body.name || user.name;
@@ -72,6 +75,7 @@ userRouter.post(
   "/list",
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findById(req.user._id);
     if (user) {
       if (user.list.find((x) => x.title === req.body.title)) {
@@ -97,6 +101,7 @@ userRouter.post(
   "/checklist",
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findById(req.user._id);
     if (user) {
       if (user.list.find((x) => x.title === req.body.title)) {
@@ -116,6 +121,7 @@ userRouter.get(
   "/list",
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findById(req.user._id);
     if (user) {
       res.send({
@@ -131,6 +137,7 @@ userRouter.delete(
   "/list/:title",
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findById(req.user._id);
     if (user) {
       const movie = user.list.find((x) => x.title === req.params.title);
@@ -149,6 +156,7 @@ userRouter.post(
   "/history",
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findById(req.user._id);
     if (user) {
       if (user.history.find((x) => x.title === req.body.title)) {
@@ -172,6 +180,7 @@ userRouter.get(
   "/history",
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const user = await User.findById(req.user._id);
     if (user) {
       res.send({
